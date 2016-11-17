@@ -9,7 +9,8 @@ export default class Pokemons extends React.Component {
 		super();
 		this.state = {
 			pokemons: [],
-			gameOver: false
+			gameOver: false,
+			score: 0
 		};
 	}
 
@@ -20,32 +21,33 @@ export default class Pokemons extends React.Component {
 		const dbRef = db.ref().child('pokemons');
 
 		dbRef.on('value', snapshot => {
-			console.log(snapshot.val());
 			PokemonActions.update(snapshot.val());
 		});
 
 		PokemonStore.on('init', () => {
 			this.setState({
-				pokemons: PokemonStore.getNextPair()
+				pokemons: PokemonStore.getNextPair(),
+				score: 0
 			});
 		});
 
 		PokemonStore.on('levelup', () => {
 			this.setState({
-				pokemons: PokemonStore.getNextPair()
+				pokemons: PokemonStore.getNextPair(),
+				score: this.state.score + 1
 			});
 		});
 
 		PokemonStore.on('gameover', () => {
-			console.log('Game Over');
 			this.setState({
-				gameOver: true
+				gameOver: true,
+				score: 0
 			});
 		});
 	}
 
 	render () {
-		const { pokemons } = this.state;
+		const { pokemons, score } = this.state;
 		const PokemonComponents = pokemons.map((pokemon) => {
 			return <Pokemon key={pokemon.Name} {...pokemon}/>;
 		});
@@ -53,7 +55,9 @@ export default class Pokemons extends React.Component {
 		return (
             <div className="row">
                 <div className="col-md-12 col-sm-12 col-xs-12">
-                    <span>Pokemons</span>
+                    <p className="text-center">Score:
+						<span> {score}</span>
+					</p>
                 </div>
                 {PokemonComponents}
             </div>
