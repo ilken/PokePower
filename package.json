@@ -11,7 +11,7 @@
     "build-dev": "node_modules/.bin/webpack --watch",
     "start-server": "node_modules/.bin/webpack-dev-server",
     "watch-styles": "gulp dev",
-    "styles": "gulp",
+    "styles": "gulp"
   },
   "author": "ILKEN",
   "license": "ISC",
