@@ -54,7 +54,6 @@ export default class Pokemons extends React.Component {
             <div className="row">
                 <div className="col-md-12 col-sm-12 col-xs-12">
                     <span>Pokemons</span>
-                    <span>Pokemons</span>
                 </div>
                 {PokemonComponents}
             </div>
