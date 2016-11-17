@@ -28,7 +28,6 @@ module.exports = {
 	babel: {
 		presets: ['react', 'es2015', 'stage-0'],
 		plugins: [
-			'react-hot-loader/babel',
 			'react-html-attrs',
 			'transform-decorators-legacy',
 			'transform-class-properties'
