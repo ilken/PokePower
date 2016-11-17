@@ -1,17 +1,16 @@
 {
-  "name": "Predictor",
+  "name": "PokePower",
   "version": "1.0.1",
   "description": "",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prod": "concurrently --kill-others \"npm run build\" \"npm run styles\"",
-    "dev": "concurrently --kill-others \"npm run build-dev\" \"npm run start-server\" \"npm run watch-styles\"",
-    "build": "node_modules/.bin/webpack",
-    "build-dev": "node_modules/.bin/webpack --watch",
+    "dev": "concurrently --kill-others \"npm run build-dev\" \"npm run start-server\" \"npm run styles-dev\"",
     "start-server": "node_modules/.bin/webpack-dev-server",
-    "watch-styles": "gulp dev",
-    "styles": "gulp"
+    "build": "node_modules/.bin/webpack",
+    "styles": "gulp",
+    "build-dev": "node_modules/.bin/webpack --watch",
+    "styles-dev": "gulp dev"
   },
   "author": "ILKEN",
   "license": "ISC",
